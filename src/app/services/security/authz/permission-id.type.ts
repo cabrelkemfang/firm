@@ -29,4 +29,4 @@ export type PermissionId = 'identity_self' | 'identity_identities' | 'identity_r
   'teller_management' | 'teller_operations' |
   'reporting_management' |
   'cheque_management' | 'cheque_transaction' |
-  'payroll_configuration' | 'payroll_distribution';
+  'payroll_configuration' | 'payroll_distribution' | 'datamigration_datamigration';
