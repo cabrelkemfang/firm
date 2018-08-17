@@ -52,7 +52,9 @@ import { ProductDefinitionMigrationComponent } from './microservice/ProductDefin
 import { ProductInstanceMigrationComponent } from './microservice/ProductInstanceMigration/product-instance-migration.component';
 import { CustomersDatamigrationComponent } from './microservice/CustomersDatamigration/customers-datamigration.component';
 import { ActionMigrationComponent } from './microservice/actionMigration/action-migration.component';
-import { GroupDefinitionMigrationComponent } from './groupDefinition/group-definition-migration.component';
+import { GroupDefinitionMigrationComponent } from './microservice/groupDefinition/group-definition-migration.component';
+import { TenantMigrationComponent } from './microservice/tenantMigration/tenant-migration.component';
+import { JournalMigrationComponent } from './microservice/journalEntrry/journal-migration.component';
 
 @NgModule({
     declarations: [
@@ -71,7 +73,9 @@ import { GroupDefinitionMigrationComponent } from './groupDefinition/group-defin
         ProductInstanceMigrationComponent,
         CustomersDatamigrationComponent,
         ActionMigrationComponent,
-        GroupDefinitionMigrationComponent
+        GroupDefinitionMigrationComponent,
+        TenantMigrationComponent,
+        JournalMigrationComponent
        
     ],
     imports: [

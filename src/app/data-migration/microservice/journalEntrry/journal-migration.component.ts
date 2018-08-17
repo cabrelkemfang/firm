@@ -19,16 +19,15 @@
 import { Component, OnInit } from '@angular/core';
 import { IfObservable } from 'rxjs/observable/IfObservable';
 import { saveAs } from 'file-saver/FileSaver';
-import { DatamigrationService } from '../../services/datamigration/datamigration.service';
-import { NotificationService,NotificationType } from '../../services/notification/notification.service';
-
+import { DatamigrationService } from '../../../services/datamigration/datamigration.service';
+import { NotificationService, NotificationType } from '../../../services/notification/notification.service';
 @Component({
-  selector: 'fims-group-definition-migration',
-  templateUrl: './group-definition-migration.component.html',
-  styleUrls: ['./group-definition-migration.component.css']
+  selector: 'fims-journal-migration',
+  templateUrl: './journal-migration.component.html',
+  styleUrls: ['./journal-migration.component.css']
 })
-export class GroupDefinitionMigrationComponent implements OnInit {
-    selectedGroupDefinitionFiles: File = null;
+export class JournalMigrationComponent implements OnInit {
+    selectedJournalEntryFiles: File = null;
   fileSize: number;
 
   constructor(
@@ -42,27 +41,27 @@ export class GroupDefinitionMigrationComponent implements OnInit {
   panelOpenState = false;
 
   selectFile(event) {
-    this.selectedGroupDefinitionFiles = <File>event.target.files[0];
+    this.selectedJournalEntryFiles = <File>event.target.files[0];
     this.fileSize = event.target.files.length;
   }
 
-  uploadGroupDefinition(): void {
+  uploadJournalEntry(): void {
     if (this.fileSize == 0) {
       return;
     } else {
-      this.datamigrationService.uploadGroupDefinition(this.selectedGroupDefinitionFiles).subscribe(() => {
+      this.datamigrationService.uploadJournalentry(this.selectedJournalEntryFiles).subscribe(() => {
         this.notificationService.send({
           type: NotificationType.MESSAGE,
-          message: 'Group Definition have been successfully migrated'
+          message: 'Journal Entry have been successfully migrated'
         });
       });
     }
   }
 
-  actionTgroupDefintionTemplateemplate() {
+  journalEntryTemplate() {
     var reader = new FileReader();
-    this.datamigrationService.groupDefintionTemplate().subscribe(blob => {
-      saveAs(blob,"Group_Definition"+".xlsx");
+    this.datamigrationService.journalEntryTemplate().subscribe(blob => {
+      saveAs(blob,"Journal_Entry"+".xlsx");
     }, (error) => {
       console.log(error);
     })

@@ -170,6 +170,26 @@ export class DatamigrationService {
     return this.http.post(`${this.baseUrl}/accounts`, formData);
   }
 
+   //Jornal  Entry Migration
+   journalEntryTemplate(): Observable<Blob> {
+    let headers = new Headers({
+      'Accept': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    });
+    let options = new RequestOptions({
+      responseType: ResponseContentType.Blob
+    });
+    return this.http.get(`${this.baseUrl}/journal/download`, options)
+      .map((response: Response) => new Blob([response], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' })
+      );
+  }
+
+  uploadJournalentry(file: File): Observable<void> {
+    const formData = new FormData();
+    formData.append('file', file, file.name);
+    return this.http.post(`${this.baseUrl}/journal`, formData);
+  }
+
+
 
   //Identity services
   //users Migration
@@ -327,6 +347,26 @@ export class DatamigrationService {
     const formData = new FormData();
     formData.append('file', file, file.name);
     return this.http.post(`${this.baseUrl}/action`, formData);
+  }
+
+   //provioner
+  //tenant
+  tenantTemplate(): Observable<Blob> {
+    let headers = new Headers({
+      'Accept': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    });
+    let options = new RequestOptions({
+      responseType: ResponseContentType.Blob
+    });
+    return this.http.get(`${this.baseUrl}/tenants/download`, options)
+      .map((response: Response) => new Blob([response], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' })
+      );
+  }
+
+  uploadTemant(file: File): Observable<void> {
+    const formData = new FormData();
+    formData.append('file', file, file.name);
+    return this.http.post(`${this.baseUrl}/tenant`, formData);
   }
 
 }

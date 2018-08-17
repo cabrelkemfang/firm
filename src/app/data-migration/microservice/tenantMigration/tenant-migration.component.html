@@ -1,0 +1,18 @@
+<mat-card class="example-card">
+        <mat-card-header>
+            <h3> Tenant Migration</h3>
+        </mat-card-header>
+    
+        <mat-card-content>
+    
+            <div class="template1">
+                <button mat-raised-button color="primary" (click)="tenantTemplate()">DownLoad Template</button>
+            </div>
+            <div class="upload1">
+                <input id="input-file-id" multiple type="file" accept=".xlsx" (change)="selectFile($event)" enctype="multipart/form-data"
+                />
+                <button mat-raised-button color="accent" (click)="uploadTenant()" class="but3" type="submit" [disabled]="!selectedTenantFiles">Upload</button>
+            </div>
+    
+        </mat-card-content>
+    </mat-card>
