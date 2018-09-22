@@ -114,6 +114,13 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
       routerLink: '/reports',
       permission: {id: 'reporting_management', accessLevel: 'READ'}
     },
+    {
+      title: 'Data-migration',
+      description: 'Migrate data',
+      icon: 'show_chart',
+      routerLink: '/data-migration',
+      permission: {id: 'datamigration_datamigration', accessLevel: 'READ'}
+    },
   ];
 
   isLoading$: Observable<boolean>;

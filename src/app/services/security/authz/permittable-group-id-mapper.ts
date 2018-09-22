@@ -30,6 +30,7 @@ import {TellerPermittableGroupIds} from '../../teller/domain/permittable-group-i
 import {ReportingPermittableGroupIds} from '../../reporting/domain/permittable-group-ids';
 import {ChequePermittableGroupIds} from '../../cheque/domain/permittable-group-ids';
 import {PayrollPermittableGroupIds} from '../../payroll/domain/permittable-group-ids';
+import { DatamigrationPermittableGroupIds } from '../../datamigration/domain/permittable-group-ids';
 
 interface PermittableGroupMap {
   [s: string]: FimsPermissionDescriptor;
@@ -114,6 +115,8 @@ export class PermittableGroupIdMapper {
 
     this._permittableGroupMap[PayrollPermittableGroupIds.CONFIGURATION] = {id: 'payroll_configuration', label: 'Payroll configuration'};
     this._permittableGroupMap[PayrollPermittableGroupIds.DISTRIBUTION] = {id: 'payroll_distribution', label: 'Payroll distribution'};
+
+    this._permittableGroupMap[DatamigrationPermittableGroupIds.DATAMIGRATION_MANAGEMENT] = {id: 'datamigration_datamigration', label: 'Datamigration'};
   }
 
   public map(permittableGroupId: string): FimsPermissionDescriptor {
